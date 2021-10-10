@@ -1,13 +1,7 @@
-export const fetchWeatherData = async city => {
-    const logging = async () => {
-        console.log(await process.env.TEST_API_KEY)      
-    }
-    logging();
-    
-    const key = '88a66e9b11d1bdbf7f615d2d2e716ffa';
-    const endpoint = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+export const fetchWeatherData = async city => {   
+    const apiURL = `/weather/${city}`;
 
-    const res = await fetch(endpoint);
+    const res = await fetch(apiURL);
     const json = await res.json();
     console.log(json);
 
