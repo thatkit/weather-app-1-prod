@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import { fetchWeatherData } from '../../fetch'
-
 export const App = () => {
     const [weather, setWeather] = useState({
         main: {
@@ -10,10 +8,25 @@ export const App = () => {
     });
     
     const getData = async () => {
-        const weatherData = await fetchWeatherData('Vladivostok');
-        setWeather(weatherData);
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+                const lat = coords.latitude;
+                const lon = coords.longitude;
+                        
+                const apiURL = `/${lat}/${lon}`;
+                const res = await fetch(apiURL);
+                const json = await res.json();
+                console.log(json);
+                return json;
+            });
+        } else {
+            console.log('geolocation IS NOT available');
+        }
     }
 
+    const data = getData();
+    setWeather(data);
+    
     useEffect(() => {
         getData();
     }, []);

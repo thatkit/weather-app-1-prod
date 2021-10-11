@@ -5,17 +5,19 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}`);
-});
+app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 
-app.use(express.static('public'));
+app.use(express.static('./build'));
 
-app.get('/weather/:city', async (req, res) => {
+app.get('/:lat/:lon', async (req, res) => {
+    console.log(req.params.lat, req.params.lon)
+
     const apiKEY = process.env.OPEN_WEATHER_API_KEY;
-    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&appid=${apiKEY}`;
+    const apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${req.params.lat}&lon=${req.params.lon}&appid=${apiKEY}`;
 
     const response = await fetch(apiURL);
     const json = await response.json();
     console.log(json);
+
+    res.json(json);
 });
