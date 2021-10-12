@@ -10,14 +10,11 @@ app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 app.use(express.static('./build'));
 
 app.get('/:lat/:lon', async (req, res) => {
-    console.log(req.params.lat, req.params.lon)
-
     const apiKEY = process.env.OPEN_WEATHER_API_KEY;
     const apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${req.params.lat}&lon=${req.params.lon}&appid=${apiKEY}`;
 
     const response = await fetch(apiURL);
     const json = await response.json();
-    console.log(json.main.temp);
 
     res.json(json);
 });

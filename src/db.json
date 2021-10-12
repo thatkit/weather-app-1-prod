@@ -1,0 +1,42 @@
+{
+    "coord": {
+        "lon":131.8863,
+        "lat":43.1195
+    },
+    "weather": [{
+        "id":800,
+        "main":"Clear",
+        "description":"clear sky",
+        "icon":"01d"
+        }],
+    "base": "stations",
+    "main": {
+        "temp":272.91,
+        "feels_like":272.91,
+        "temp_min":272.91,
+        "temp_max":272.91,
+        "pressure":1030,
+        "humidity":67,
+        "sea_level":1030,
+        "grnd_level":1024
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed":1.03,
+        "deg":179,
+        "gust":2.98
+    },
+    "clouds": {"all":0},
+    "dt": 1634076911,
+    "sys": {
+        "type":1,
+        "id":8885,
+        "country":"RU",
+        "sunrise":1634073786,
+        "sunset":1634114045
+    },
+    "timezone": 36000,
+    "id": 2013348,
+    "name": "Vladivostok",
+    "cod": 200
+}
