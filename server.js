@@ -17,7 +17,7 @@ app.get('/:lat/:lon', async (req, res) => {
 
     const response = await fetch(apiURL);
     const json = await response.json();
-    console.log(json);
+    console.log(json.main.temp);
 
     res.json(json);
 });

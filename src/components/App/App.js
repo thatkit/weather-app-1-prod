@@ -16,16 +16,15 @@ export const App = () => {
                 const apiURL = `/${lat}/${lon}`;
                 const res = await fetch(apiURL);
                 const json = await res.json();
-                console.log(json);
-                return json;
+                // console.log(json);
+                setWeather(json);
+
+                return null;
             });
         } else {
             console.log('geolocation IS NOT available');
         }
-    }
-
-    const data = getData();
-    setWeather(data);
+    }    
     
     useEffect(() => {
         getData();
@@ -33,7 +32,8 @@ export const App = () => {
     
     return (
         <div>
-            <h1>bitch hi</h1>
+            <h1>Weather App</h1>
+            <h2>Build with React.js, Express.js with Open Weather API</h2>
             <div>
                 <p>
                     {weather.main.temp}
