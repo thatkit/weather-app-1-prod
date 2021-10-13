@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Jumbotron, Button } from 'reactstrap';
+import { Tile } from '../Tile/Tile'
 import db from '../../db.json'; // for develompent only
 // change coords from api 
 
@@ -45,15 +46,6 @@ export const App = (props) => {
     }, []);
     
     return (
-        // <div>
-        //     <h1>Weather App</h1>
-        //     <h2>Build with React.js, Express.js with Open Weather API</h2>
-        //     <div>
-        //         <p>
-        //             {weather.main.temp}
-        //         </p>
-        //     </div>
-        // </div>
         <Container>
             <Jumbotron>
                 <h1 className="display-2 mt-4 mb-4">Weather for your coordinates!</h1>
@@ -69,6 +61,10 @@ export const App = (props) => {
                     
                     {weather.wind.speed}, {weather.main.temp}, etc...
                 </p>
+                <Tile />
+                <Tile />
+                <Tile />
+                <Tile />
                 <Button color="secondary">Learn more</Button>
             </Jumbotron>
         </Container>
