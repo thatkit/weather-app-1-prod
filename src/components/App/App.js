@@ -78,7 +78,7 @@ export const App = (props) => {
                     heading="Clouds"
                     value={weather.clouds.all}
                 />
-                <Button color="secondary">Learn more</Button>
+                <Button color="secondary" href="https://github.com/thatkit/weather-app-1" target="_blank">Github</Button>
             </Jumbotron>
         </Container>
       )
