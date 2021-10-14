@@ -12,11 +12,15 @@ export const App = (props) => {
             lat: 0
         },
         main: {
-            temp: 0
+            temp: 0,
+            humidity: 0
         },
         wind: {
             speed: 0,
             deg: 0
+        },
+        clouds: {
+            all: 0
         },
         name: ''
     });
@@ -55,16 +59,25 @@ export const App = (props) => {
                 <p className="lead">
                     Your coordinates: {weather.coord.lon}&deg;, {weather.coord.lat}&deg;
                 </p>
-                <hr className="my-4" />
-                <p>
-                    here is the place for mini cards for each weather attribute with a small animated image
-                    
-                    {weather.wind.speed}, {weather.main.temp}, etc...
+                <p className="lead">
+                    Your weather:
                 </p>
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                <Tile 
+                    heading="Temperature"
+                    value={weather.main.temp}
+                />
+                <Tile 
+                    heading="Humidity"
+                    value={weather.main.humidity}
+                />
+                <Tile 
+                    heading="Wind"
+                    value={weather.wind.speed}
+                />
+                <Tile 
+                    heading="Clouds"
+                    value={weather.clouds.all}
+                />
                 <Button color="secondary">Learn more</Button>
             </Jumbotron>
         </Container>

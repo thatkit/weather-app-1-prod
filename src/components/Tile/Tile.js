@@ -4,9 +4,9 @@ import { Card, CardTitle, CardText } from 'reactstrap';
 
 export const Tile = (props) => {
     return (
-    <Card body outline color="secondary">
-        <CardTitle tag="h5">heading</CardTitle>
-        <CardText>image</CardText>
+    <Card body outline color="secondary" className="mt-2 mb-2">
+        <CardTitle tag="h5">{props.heading}</CardTitle>
+        <CardText>{props.value}</CardText>
     </Card>
     );
 }
