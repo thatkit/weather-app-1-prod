@@ -7,27 +7,25 @@ export const Tiles = (props) => {
     return (
         <>
             <Row>
-                <Col>
+                <Col xs="12" sm="6" md="3">
                     <Tile 
                         heading="Temperature"
                         value={props.weather.main.temp}
                     />
                 </Col>
-                <Col>
+                <Col xs="12" sm="6" md="3">
                     <Tile 
                         heading="Humidity"
                         value={props.weather.main.humidity}
                     />
                 </Col>
-            </Row>
-            <Row>
-                <Col>
+                <Col xs="12" sm="6" md="3">
                     <Tile 
                         heading="Wind"
                         value={props.weather.wind.speed}
                     />
                 </Col>
-                <Col>
+                <Col xs="12" sm="6" md="3">
                     <Tile 
                         heading="Clouds"
                         value={props.weather.clouds.all}
