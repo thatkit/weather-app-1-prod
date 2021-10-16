@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Jumbotron, Button } from 'reactstrap';
-import { Tile } from '../Tile/Tile'
+import { Container } from 'reactstrap';
+import { Header } from '../Header/Header'
+import { Tiles } from '../Tiles/Tiles'
+import { Btn } from '../Btn/Btn'
 import db from '../../db.json'; // for develompent only
 // change coords from api 
 
@@ -51,35 +53,9 @@ export const App = (props) => {
     
     return (
         <Container>
-            <Jumbotron>
-                <h1 className="display-2 mt-4 mb-4">Weather for your coordinates!</h1>
-                <p className="lead">
-                    Your place: {weather.name}
-                </p>
-                <p className="lead">
-                    Your coordinates: {weather.coord.lon}&deg;, {weather.coord.lat}&deg;
-                </p>
-                <p className="lead">
-                    Your weather:
-                </p>
-                <Tile 
-                    heading="Temperature"
-                    value={weather.main.temp}
-                />
-                <Tile 
-                    heading="Humidity"
-                    value={weather.main.humidity}
-                />
-                <Tile 
-                    heading="Wind"
-                    value={weather.wind.speed}
-                />
-                <Tile 
-                    heading="Clouds"
-                    value={weather.clouds.all}
-                />
-                <Button color="secondary" href="https://github.com/thatkit/weather-app-1" target="_blank">Github</Button>
-            </Jumbotron>
+            <Header weather={weather} />
+            <Tiles weather={weather} />
+            <Btn />
         </Container>
       )
 }
