@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'reactstrap';
+
 import { Header } from '../Header/Header'
 import { Tiles } from '../Tiles/Tiles'
 import { Btn } from '../Btn/Btn'
+
 import db from '../../db.json'; // for develompent only
 // change coords from api 
 
@@ -13,6 +16,12 @@ export const App = (props) => {
             lon: 0,
             lat: 0
         },
+        weather: [
+            {
+                description: '',
+                icon: ''
+            }
+        ],
         main: {
             temp: 0,
             humidity: 0

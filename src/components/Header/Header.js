@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Row, Col } from 'reactstrap';
+
+import { Icon } from './Icon/Icon';
 
 export const Header = (props) => {
     return (
@@ -15,6 +20,10 @@ export const Header = (props) => {
             <p className="lead">
                 Your weather:
             </p>
+            <Icon 
+                description={props.weather.weather[0].description} 
+                icon={props.weather.weather[0].icon}
+            />
         </>
     )
 }

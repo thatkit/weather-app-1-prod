@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'reactstrap';
-import { Tile } from '../Tile/Tile';
+import { Tile } from './Tile/Tile';
 
 export const Tiles = (props) => {
     return (
