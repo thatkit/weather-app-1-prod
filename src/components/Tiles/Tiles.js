@@ -14,28 +14,29 @@ export const Tiles = (props) => {
                     <Tile 
                         heading="Temperature"
                         value={
-                            fahrenheitCountries.includes(props.weather.sys.country) ?
-                            Math.round(props.weather.main.temp) : 
-                            Math.round((props.weather.main.temp - 32) * 5 / 9)
+                            (fahrenheitCountries.includes(props.weather.sys.country) ?
+                            Math.round((props.weather.main.temp - 273.15) * 9 / 5 + 32) : 
+                            Math.round(props.weather.main.temp - 273.15)) 
+                            + ` ${String.fromCharCode(176)}`
                         }
                     />
                 </Col>
                 <Col xs="12" sm="6" md="3">
                     <Tile 
                         heading="Humidity"
-                        value={props.weather.main.humidity}
+                        value={props.weather.main.humidity + ' %'}
                     />
                 </Col>
                 <Col xs="12" sm="6" md="3">
                     <Tile 
                         heading="Wind"
-                        value={props.weather.wind.speed}
+                        value={props.weather.wind.speed + ' m/s'}
                     />
                 </Col>
                 <Col xs="12" sm="6" md="3">
                     <Tile 
                         heading="Clouds"
-                        value={props.weather.clouds.all}
+                        value={props.weather.clouds.all + ' %'}
                     />
                 </Col>
             </Row>
