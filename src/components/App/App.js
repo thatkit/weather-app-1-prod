@@ -11,6 +11,7 @@ import db from '../../db.json'; // for develompent only
 // change coords from api 
 
 export const App = (props) => {
+    // const [coord, setCoord] = 
     const [weather, setWeather] = useState({
         coord: {
             lon: 0,
@@ -40,23 +41,22 @@ export const App = (props) => {
     });
     
     const getData = async () => {
-        // if ('geolocation' in navigator) {
-        //     navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-        //         const lat = coords.latitude;
-        //         const lon = coords.longitude;
-                        
-        //         const apiURL = `/${lat}/${lon}`;
-        //         const res = await fetch(apiURL);
-        //         const json = await res.json();
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+                const lat = coords.latitude;
+                const lon = coords.longitude;
+                // const apiURL = `/${lat}/${lon}`;
+                // const res = await fetch(apiURL);
+                // const json = await res.json();
 
-        //         setWeather(json);
-
-        //         return null;
-        //     });
-        // } else {
-        //     console.log('geolocation IS NOT available');
-        // }
-        setWeather(db);
+                // setWeather(json);
+                console.log(lat, lon)
+                return null;
+            });
+        } else {
+            console.log('geolocation IS NOT available');
+        }
+        setWeather(db); //fake db
     }    
     
     useEffect(() => {
