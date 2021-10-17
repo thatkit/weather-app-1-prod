@@ -33,6 +33,9 @@ export const App = (props) => {
         clouds: {
             all: 0
         },
+        sys: {
+            country: ''
+        },
         name: ''
     });
     

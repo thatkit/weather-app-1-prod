@@ -1,5 +1,8 @@
 import React from 'react';
-import weatherIcon from './svg/weather.svg'
+import weatherIcon from './svg/weather.svg';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'reactstrap';
 
 export class Icon extends React.Component {
     constructor(props) {
@@ -36,13 +39,20 @@ export class Icon extends React.Component {
         // First, get the svg text and insert it into the DOM
         const res = await fetch(weatherIcon);
         const text = await res.text();
-        document.getElementById('icon').insertAdjacentHTML("afterbegin", text);
+        document
+            .getElementById('icon')
+            .insertAdjacentHTML("afterbegin", text);
         
         // Second, assign the chosen element to a variable
         const svgEl = document.querySelector(`svg#svg-icon > g#${elId}`);
         
         // Third, hide all other elements and reveal the chosen one
-        document.querySelectorAll('svg#svg-icon > g').forEach(el => el.style.display = 'none');
+        document
+            .querySelectorAll('svg#svg-icon > g')
+            .forEach(el => {
+                el.style.display = 'none';
+                el.style.transform = 'scale(2)';
+            });
         svgEl.style.display = 'block';
         
         return null;
@@ -50,9 +60,7 @@ export class Icon extends React.Component {
 
     render() {
         return (
-            <div 
-                id="icon"
-            ></div>
+            <Container id="icon"></Container>
         )
     }
 }
