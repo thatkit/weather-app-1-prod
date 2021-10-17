@@ -11,7 +11,10 @@ import db from '../../db.json'; // for develompent only
 // change coords from api 
 
 export const App = (props) => {
-    // const [coord, setCoord] = 
+    const [coords, setCoords] = useState({
+        lon: 0,
+        lat: 0
+    });
     const [weather, setWeather] = useState({
         coord: {
             lon: 0,
@@ -40,32 +43,35 @@ export const App = (props) => {
         name: ''
     });
     
-    const getData = async () => {
-        if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-                const lat = coords.latitude;
-                const lon = coords.longitude;
-                // const apiURL = `/${lat}/${lon}`;
-                // const res = await fetch(apiURL);
-                // const json = await res.json();
-
-                // setWeather(json);
-                console.log(lat, lon)
-                return null;
-            });
-        } else {
-            console.log('geolocation IS NOT available');
-        }
-        setWeather(db); //fake db
-    }    
-    
     useEffect(() => {
+        const getData = async () => {
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+                    const lat = coords.latitude;
+                    const lon = coords.longitude;
+                    // const apiURL = `/${lat}/${lon}`;
+                    // const res = await fetch(apiURL);
+                    // const json = await res.json();
+    
+                    // setWeather(json);
+                    setCoords({lon: lon, lat: lat});
+                    setWeather(db); //fake db
+                    return null;
+                });
+            } else {
+                console.log('geolocation IS NOT available');
+            }
+        }    
+            
         getData();
-    }, []);
+    }, [weather]);
     
     return (
         <Container>
-            <Header weather={weather} />
+            <Header 
+                weather={weather} 
+                coords={coords}
+            />
             <Tiles weather={weather} />
             <Btn />
         </Container>

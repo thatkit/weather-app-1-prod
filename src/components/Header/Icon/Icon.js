@@ -35,26 +35,26 @@ export class Icon extends React.Component {
         _50n: 'cloudy'
     };
     
-    toggleSVG = async elId => {
-        // First, get the svg text and insert it into the DOM
+    async toggleSVG(elId) {
         const res = await fetch(weatherIcon);
         const text = await res.text();
-        document
-            .getElementById('icon')
-            .insertAdjacentHTML("afterbegin", text);
+
+        if (document.getElementById('icon').children.length < 1) {
+            document
+                .getElementById('icon')
+                .insertAdjacentHTML("afterbegin", text);
+        }
         
-        // Second, assign the chosen element to a variable
-        const svgEl = document.querySelector(`svg#svg-icon > g#${elId}`);
-        
-        // Third, hide all other elements and reveal the chosen one
         document
             .querySelectorAll('svg#svg-icon > g')
             .forEach(el => {
                 el.style.display = 'none';
                 el.style.transform = 'scale(2)';
+                if (el.id === elId) {
+                    el.style.display = 'block';
+                }
             });
-        svgEl.style.display = 'block';
-        
+                    
         return null;
     }
 

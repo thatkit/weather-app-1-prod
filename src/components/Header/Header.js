@@ -21,7 +21,7 @@ export const Header = (props) => {
                         Your place: {props.weather.name}
                     </p>
                     <p className="lead">
-                        Your coordinates: {props.weather.coord.lon}&deg;, {props.weather.coord.lat}&deg;
+                        Your coordinates: {props.coords.lon}&deg;, {props.coords.lat}&deg;
                     </p>
                     <p className="lead">
                         Your weather:
