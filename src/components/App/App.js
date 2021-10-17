@@ -7,8 +7,7 @@ import { Header } from '../Header/Header'
 import { Tiles } from '../Tiles/Tiles'
 import { Btn } from '../Btn/Btn'
 
-import db from '../../db.json'; // for develompent only
-// change coords from api 
+// import db from '../../db.json'; // for develompent only
 
 export const App = (props) => {
     const [coords, setCoords] = useState({
@@ -49,13 +48,13 @@ export const App = (props) => {
                 navigator.geolocation.getCurrentPosition(async ({ coords }) => {
                     const lat = coords.latitude;
                     const lon = coords.longitude;
-                    // const apiURL = `/${lat}/${lon}`;
-                    // const res = await fetch(apiURL);
-                    // const json = await res.json();
+                    const apiURL = `/${lat}/${lon}`;
+                    const res = await fetch(apiURL);
+                    const json = await res.json();
     
-                    // setWeather(json);
+                    setWeather(json);
                     setCoords({lon: lon, lat: lat});
-                    setWeather(db); //fake db
+                    // setWeather(db); //fake db
                     return null;
                 });
             } else {
