@@ -7,8 +7,6 @@ import { Header } from '../Header/Header'
 import { Tiles } from '../Tiles/Tiles'
 import { Btn } from '../Btn/Btn'
 
-// import db from '../../db.json'; // for develompent only
-
 export const App = (props) => {
     const [coords, setCoords] = useState({
         lon: 0,
@@ -54,7 +52,6 @@ export const App = (props) => {
     
                     setWeather(json);
                     setCoords({lon: lon, lat: lat});
-                    // setWeather(db); //fake db
                     return null;
                 });
             } else {
@@ -63,7 +60,7 @@ export const App = (props) => {
         }    
             
         getData();
-    }, [weather]);
+    }, []);
     
     return (
         <Container>
