@@ -1,71 +1,55 @@
-# Getting Started with Create React App
+# Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The app utilises external [OpenWeatherAPI](https://openweathermap.org/api) and in-build [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) to check weather conditions at one's current location. Here, one might find some usefull info about the app.
+
+## How to use the code
+
+In order to deploy this app in development/production mode on your machine, please follow these simple steps:
+
+1. 
+2. 
+3. 
+4. 
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, one can run:
 
-### `npm start`
+### `npm run start`
 
-Runs the app in the development mode.\
+Basically, runs server (`server.js`) both in the development and production mode. Since geolocation API requires secure connection, both modes are run via HTTP**S**.
+Open [https://localhost:5000](https://localhost:5000) to view it in the browser in development mode.
+
+If one is willing to switch between the two modes, please consider browsing to `server.js` in the root directory and change the following lines to the appropriate one:
+```javascript
+const app = express(); // for production
+// const app = require('https-localhost')(); // for development only
+```
+For example, at this state of code, the production mode is *'enabled'*.
+
+### `npm run react`
+
+Launches the client-side (React) code solely. It migth be used for adjusting styles without having to re-build and serve code through Express.js/
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
+Express.js code (the `server.js` file in the root directory) serves bundled files from the `build` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Other scripts
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There are other prebuild scripts from React.js, but most likely one will never use those.
 
-### `npm run eject`
+## Technolgies used
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Frontend:
+- React.js;
+- Bootstrap (Reactstrap).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backend:
+- Express.js, Node.js.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Author
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# weather-app-1
+https://github.com/thatkit
