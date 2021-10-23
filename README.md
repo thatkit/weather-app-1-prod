@@ -6,10 +6,32 @@ The app utilises external [OpenWeatherAPI](https://openweathermap.org/api) and i
 
 In order to deploy this app in development/production mode on your machine, please follow these simple steps:
 
-1. 
-2. 
-3. 
-4. 
+1. Clone the directory on your machine.
+```
+git clone https://github.com/thatkit/weather-app-1.git
+```
+2. Install all dependencies.
+```
+npm i
+```
+3. The express code from `server.js` uses environment variable for storing [OpenWeatherAPI](https://openweathermap.org/api) key. At this point, one should create one on the official site and store it in the root directory as `.env` with the following structure. Check `.env_sample` for reference. 
+```
+OPEN_WEATHER_API_KEY=here_goes_your_api_key
+``` 
+One of the ways of doing this can be nano terminal editor:
+
+i. Open `.env_sample` file.
+```
+nano .env_sample
+```
+
+ii. Replace `here_goes_your_api_key` with your OpenWeatherAPI key.
+
+iii. Close and save as `.env`.
+
+4. Run `npm run start`. Check the next section for reference.
+
+5. Now, the app should be running on [https://localhost:5000](https://localhost:5000).
 
 ## Available Scripts
 
@@ -52,4 +74,4 @@ There are other prebuild scripts from React.js, but most likely one will never u
 
 ### Author
 
-https://github.com/thatkit
+[thatkit](https://github.com/thatkit) from Vladivostok, Russia.
