@@ -49,7 +49,17 @@ export class Icon extends React.Component {
             .querySelectorAll('svg#svg-icon > g')
             .forEach(el => {
                 el.style.display = 'none';
-                el.style.transform = 'scale(2)';
+                if (window.innerWidth > 372) {
+                    el.style.transform = 'scale(2)';
+                } else if (window.innerWidth > 280) {
+                    el.style.transform = 'scale(1.5)';
+                    document.getElementById('svg-icon').setAttribute('width', 96);
+                    document.getElementById('svg-icon').setAttribute('height', 96);
+                } else {
+                    el.style.transform = 'scale(1)';
+                    document.getElementById('svg-icon').setAttribute('width', 64);
+                    document.getElementById('svg-icon').setAttribute('height', 64);
+                }
                 if (el.id === elId) {
                     el.style.display = 'block';
                 }
@@ -60,7 +70,7 @@ export class Icon extends React.Component {
 
     render() {
         return (
-            <Container id="icon"></Container>
+            <Container id="icon" style={{'padding': 0}}></Container>
         )
     }
 }

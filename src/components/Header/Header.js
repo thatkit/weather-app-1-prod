@@ -27,9 +27,8 @@ export const Header = (props) => {
                         Your weather:
                     </p>
                 </Col>
-                <Col xs="4">
-                    <Icon 
-                        description={props.weather.weather[0].description} 
+                <Col xs="4" style={{'padding': 0}}>
+                    <Icon
                         icon={props.weather.weather[0].icon}
                     />
                 </Col>
